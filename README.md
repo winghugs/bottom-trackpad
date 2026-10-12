@@ -8,17 +8,17 @@ To turn off the trackpad (and back on) you should add two non-steam games. I'm s
 Off:
 ```
 Name: Turn Off Trackpad
-Executable: "/usr/bin/systemctl"
-Starting Dir: /usr/bin
-Launch Arguments: "%command% --user stop auto-trackpad-thor.service"
+Executable: "/bin/bash /var/home/armada/.local/badthortrackpad/stop.sh"
+Starting Dir: /var/home/armada/.local/badthortrackpad/
+Launch Arguments: 
 ```
 
 On:
 ```
 Name: Turn On Trackpad
-Executable: "/usr/bin/systemctl"
-Starting Dir: /usr/bin
-Launch Arguments: "%command% --user start auto-trackpad-thor.service"
+Executable: "/bin/bash /var/home/armada/.local/badthortrackpad/start.sh"
+Starting Dir: /var/home/armada/.local/badthortrackpad/
+Launch Arguments: 
 ```
 
 ## this thing is pretty bad and i hope other people make better things than this in the future

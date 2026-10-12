@@ -37,6 +37,8 @@ mkdir -p "$SYSTEMD_CONFIG"
 cd "$SCRIPT_DIR"
 curl https://raw.githubusercontent.com/winghugs/bottom-trackpad/refs/heads/main/trackpad.py > trackpad.py
 chmod +x trackpad.py
+curl "https://raw.githubusercontent.com/winghugs/bottom-trackpad/refs/heads/main/start.sh" > "start.sh"
+curl "https://raw.githubusercontent.com/winghugs/bottom-trackpad/refs/heads/main/stop.sh" > "stop.sh"
 cd "$SYSTEMD_CONFIG"
 curl https://raw.githubusercontent.com/winghugs/bottom-trackpad/refs/heads/main/auto-trackpad-thor.service > auto-trackpad-thor.service
 cd "$CURRENT_DIR"
