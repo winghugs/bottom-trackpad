@@ -6,16 +6,20 @@ Adds a service to start a lil trackpad on your bottom screen when you boot your 
 To turn off the trackpad (and back on) you should add two non-steam games. I'm sorry.
 
 Off:
-```Name: Turn Off Trackpad
+```
+Name: Turn Off Trackpad
 Executable: "/usr/bin/systemctl"
 Starting Dir: /usr/bin
-Launch Arguments: "%command% --user stop auto-trackpad-thor.service"```
+Launch Arguments: "%command% --user stop auto-trackpad-thor.service"
+```
 
 On:
-```Name: Turn On Trackpad
+```
+Name: Turn On Trackpad
 Executable: "/usr/bin/systemctl"
 Starting Dir: /usr/bin
-Launch Arguments: "%command% --user start auto-trackpad-thor.service"```
+Launch Arguments: "%command% --user start auto-trackpad-thor.service"
+```
 
 ## this thing is pretty bad and i hope other people make better things than this in the future
 
