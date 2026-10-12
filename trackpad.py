@@ -246,7 +246,7 @@ class MultitouchParser:
                 elif code == ABS_MT_POSITION_Y:
                     self.raw.setdefault(self.slot, [0, 0])[1] = value
             elif kind == EV_SYN and code == SYN_REPORT:
-                frames.append({
+                framthes.append({
                     tid: raw_to_screen(*self.raw.get(slot, (0, 0)))
                     for slot, tid in self.tracking.items()
                 })
