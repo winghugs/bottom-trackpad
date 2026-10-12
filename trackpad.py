@@ -118,6 +118,7 @@ class Touchpad:
     def __init__(self, mouse: Mouse) -> None:
         self.mouse = mouse
         self.pad_points: dict[int, tuple[float, float]] = {}
+        self.owners: set[int] = set()
         self.gesture_start = 0.0
         self.gesture_max_fingers = 0
         self.travel = 0.0
@@ -140,11 +141,13 @@ class Touchpad:
         self.last_seen = now
         previous = dict(self.pad_points)
         current = dict(contacts)
+        self.owners = set(current)
 
         if not current:
             if previous:
                 self._finish_gesture(now)
             self.pad_points = {}
+            self.owners.clear()
             return
 
         if not previous:
@@ -213,6 +216,7 @@ class Touchpad:
     def expire(self, now: float) -> None:
         if self.owners and now - self.last_seen > 2.0:
             self.reset()
+            self.owners.clear()
 
 
 class MultitouchParser:
@@ -246,7 +250,7 @@ class MultitouchParser:
                 elif code == ABS_MT_POSITION_Y:
                     self.raw.setdefault(self.slot, [0, 0])[1] = value
             elif kind == EV_SYN and code == SYN_REPORT:
-                framthes.append({
+                frames.append({
                     tid: raw_to_screen(*self.raw.get(slot, (0, 0)))
                     for slot, tid in self.tracking.items()
                 })
