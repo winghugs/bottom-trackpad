@@ -21,6 +21,9 @@ Starting Dir: /var/home/armada/.local/badthortrackpad/
 Launch Arguments: 
 ```
 
+if you don't want the trackpad to start on boot, run this once in a terminal:
+``` systemctl --user disable auto-trackpad-thor.service ```
+
 ## this thing is pretty bad and i hope other people make better things than this in the future
 
 ## Install
